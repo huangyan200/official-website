@@ -1,0 +1,5 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="EnergyQuant logo">
+  <rect width="512" height="512" rx="20" fill="#0f2742"/>
+  <path d="M92 120h320v56H92zM92 228h240v56H92zM92 336h320v56H92z" fill="#5fa8ff"/>
+  <text x="256" y="290" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="120" font-weight="800" fill="#ffffff">EQ</text>
+</svg>
