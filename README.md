@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # official-website
 
 EnergyQuant official website project (React + Rspack + NestJS).
@@ -37,3 +38,6 @@ npm run dev:win
 ```
 
 Open: `http://127.0.0.1:8080`
+=======
+# official-website
+>>>>>>> e467dfa325a6761deebd7de5b9bc6a9bbfd3aaa1
