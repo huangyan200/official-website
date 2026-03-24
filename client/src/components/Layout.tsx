@@ -41,20 +41,12 @@ const LayoutContent: React.FC = () => {
 
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0d1b2f]/96 backdrop-blur-xl">
         <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 md:h-22 md:px-12 lg:px-20">
-          <Link to="/" className="flex min-w-0 items-center gap-3 text-white">
+          <Link to="/" className="flex items-center gap-3 text-white">
             <img
-              src="/favicon.svg"
+              src="/logo.svg"
               alt={localizedText(brand.name, language)}
-              className="h-11 w-11 shrink-0 rounded-2xl drop-shadow-[0_12px_30px_rgba(2,8,22,0.28)] md:h-12 md:w-12"
+              className="h-10 w-auto max-w-[228px] drop-shadow-[0_12px_30px_rgba(2,8,22,0.28)] md:h-12 md:max-w-[260px]"
             />
-            <div className="min-w-0">
-              <p className="truncate font-display text-[1.1rem] font-semibold leading-none text-white md:text-[1.35rem]">
-                {brand.name.zh}
-              </p>
-              <p className="mt-1 hidden truncate text-[0.72rem] font-semibold tracking-[0.04em] text-blue-100/88 sm:block md:text-[0.82rem]">
-                {brand.name.en}
-              </p>
-            </div>
           </Link>
 
           <div className="hidden items-center gap-10 lg:flex">
@@ -69,10 +61,10 @@ const LayoutContent: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-3">
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 rounded-full border border-white/18 bg-white/8 px-3 py-2.5 text-[0.92rem] font-semibold tracking-[0.02em] text-white transition-colors hover:border-white/34 hover:bg-white/12 sm:px-4 sm:text-[0.98rem]"
+              className="flex items-center gap-2 rounded-full border border-white/18 bg-white/8 px-4 py-2.5 text-[0.98rem] font-semibold tracking-[0.02em] text-white transition-colors hover:border-white/34 hover:bg-white/12"
               aria-label="Toggle language"
               type="button"
             >
@@ -95,22 +87,12 @@ const LayoutContent: React.FC = () => {
         <div className="fixed inset-0 z-40 bg-[#0d1b2f]/96 pt-24 backdrop-blur-xl lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 md:px-12 lg:px-20">
             <div className="surface-panel flex items-center justify-between gap-3 rounded-[1.5rem] px-5 py-4">
-              <div className="flex min-w-0 items-center gap-3">
-                <img
-                  src="/favicon.svg"
-                  alt={localizedText(brand.name, language)}
-                  className="h-11 w-11 shrink-0 rounded-2xl"
-                />
-                <div className="min-w-0">
-                  <p className="truncate font-display text-[1.02rem] font-semibold text-slate-950">
-                    {brand.name.zh}
-                  </p>
-                  <p className="truncate text-[0.78rem] font-semibold tracking-[0.04em] text-slate-600">
-                    {brand.name.en}
-                  </p>
-                </div>
-              </div>
-              <span className="hidden text-right text-[0.84rem] font-medium tracking-[0.04em] text-slate-700 sm:block">
+              <img
+                src="/logo.svg"
+                alt={localizedText(brand.name, language)}
+                className="h-11 w-auto max-w-[230px]"
+              />
+              <span className="text-right text-[0.84rem] font-medium tracking-[0.04em] text-slate-700">
                 {language === 'zh' ? '量化研究 / 能源市场' : 'Quant Research / Energy Markets'}
               </span>
             </div>
@@ -143,18 +125,10 @@ const LayoutContent: React.FC = () => {
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <img
-                  src="/favicon.svg"
+                  src="/logo.svg"
                   alt={localizedText(brand.name, language)}
-                  className="h-12 w-12 shrink-0 rounded-2xl"
+                  className="h-12 w-auto max-w-[280px]"
                 />
-                <div className="min-w-0">
-                  <p className="truncate font-display text-[1.22rem] font-semibold text-slate-950">
-                    {brand.name.zh}
-                  </p>
-                  <p className="truncate text-[0.82rem] font-semibold tracking-[0.04em] text-slate-600">
-                    {brand.name.en}
-                  </p>
-                </div>
               </div>
               <p className="terminal-line">
                 {language === 'zh' ? 'Quant Systems / Energy Markets' : 'Quant Systems / Energy Markets'}
