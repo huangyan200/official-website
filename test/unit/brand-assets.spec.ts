@@ -9,6 +9,7 @@ describe('brand assets', () => {
   it('publish the new logo as a light lockup and keep a compact favicon mark', () => {
     const logo = read('client/public/logo.svg');
     const favicon = read('client/public/favicon.svg');
+    const layout = read('client/src/components/Layout.tsx');
 
     expect(logo).toContain('任能量化');
     expect(logo).toContain('EnergyQuant Research');
@@ -16,6 +17,9 @@ describe('brand assets', () => {
     expect(logo).toContain('rx="28"');
     expect(favicon).toContain('任能量化 mark');
     expect(favicon).toContain('url(#accent)');
+    expect(layout).toContain('src="/favicon.svg"');
+    expect(layout).toContain('min-w-0');
+    expect(layout).not.toContain('max-w-[228px]');
   });
 
   it('rewrites all og assets and metadata to the new domain and brand', () => {
