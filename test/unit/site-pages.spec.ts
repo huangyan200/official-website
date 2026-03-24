@@ -9,7 +9,6 @@ const pageFiles = [
   path.join(pagesRoot, 'ProjectsPage', 'ProjectsPage.tsx'),
   path.join(pagesRoot, 'NewsPage', 'NewsPage.tsx'),
   path.join(pagesRoot, 'KnowledgeBasePage', 'KnowledgeBasePage.tsx'),
-  path.join(pagesRoot, 'KnowledgeArticlePage', 'KnowledgeArticlePage.tsx'),
   path.join(pagesRoot, 'AboutPage', 'AboutPage.tsx'),
   path.join(pagesRoot, 'ContactPage', 'ContactPage.tsx'),
 ];
@@ -56,15 +55,9 @@ describe('site pages public-safe launch contract', () => {
   it('knowledge page renders knowledge tracks and topic lists instead of placeholder cards', () => {
     const content = fs.readFileSync(path.join(pagesRoot, 'KnowledgeBasePage', 'KnowledgeBasePage.tsx'), 'utf8');
 
-    expect(content).toContain('knowledge.articles.map');
+    expect(content).toContain('knowledge.tracks.map');
+    expect(content).toContain('track.topics.map');
     expect(content).not.toContain('knowledge.upcomingItems');
-  });
-
-  it('app routes include the knowledge article detail page', () => {
-    const content = fs.readFileSync(path.join(projectRoot, 'client', 'src', 'app.tsx'), 'utf8');
-
-    expect(content).toContain('KnowledgeArticlePage');
-    expect(content).toContain('path="knowledge/:slug"');
   });
 
   it('about page no longer renders quantitative counters or market project totals', () => {

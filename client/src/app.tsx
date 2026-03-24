@@ -6,7 +6,6 @@ const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage/ProjectsPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage/NewsPage'));
 const KnowledgeBasePage = lazy(() => import('./pages/KnowledgeBasePage/KnowledgeBasePage'));
-const KnowledgeArticlePage = lazy(() => import('./pages/KnowledgeArticlePage/KnowledgeArticlePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
@@ -24,7 +23,6 @@ const RoutesComponent = () => {
           <Route path="projects" element={<ProjectsPage />} />
           <Route path="news" element={<NewsPage />} />
           <Route path="knowledge" element={<KnowledgeBasePage />} />
-          <Route path="knowledge/:slug" element={<KnowledgeArticlePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
         </Route>
