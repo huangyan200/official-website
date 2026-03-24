@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookOpenTextIcon, FileTextIcon, LibraryBigIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ScrollReveal from '@/components/ScrollReveal';
 import SEO from '@/components/SEO';
 import { localizedText, siteContent } from '@/content/site-content';
@@ -63,7 +64,61 @@ const KnowledgeBasePage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="story-grid lg:grid-cols-3">
+              <div className="mt-12 editorial-stack">
+                <div className="editorial-stack max-w-3xl">
+                  <p className="section-kicker">
+                    {localizedText(knowledge.labels.featuredTitle, language)}
+                  </p>
+                  <p className="text-[1rem] leading-8 text-slate-700">
+                    {localizedText(knowledge.labels.featuredSubtitle, language)}
+                  </p>
+                </div>
+
+                <div className="story-grid lg:grid-cols-2">
+                  {knowledge.articles.map((article) => (
+                    <article
+                      key={article.slug}
+                      className="surface-panel editorial-stack rounded-[1.8rem] p-6 md:p-7"
+                    >
+                      <div className="flex flex-wrap items-center gap-3 text-[0.85rem] font-semibold tracking-[0.03em] text-slate-500">
+                        <span>{localizedText(article.category, language)}</span>
+                        <span className="text-slate-300">/</span>
+                        <span>{localizedText(article.readTime, language)}</span>
+                        <span className="text-slate-300">/</span>
+                        <span>{localizedText(article.publishedAt, language)}</span>
+                      </div>
+                      <div className="inline-flex w-fit rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-[0.8rem] font-semibold text-sky-700">
+                        {localizedText(article.safeScopeLabel, language)}
+                      </div>
+                      <h2 className="font-display text-[2rem] font-semibold text-slate-950">
+                        {localizedText(article.title, language)}
+                      </h2>
+                      <p className="text-[1rem] leading-8 text-slate-700">
+                        {localizedText(article.summary, language)}
+                      </p>
+                      <p className="border-l border-slate-200 pl-4 text-[0.98rem] leading-7 text-slate-600">
+                        {localizedText(article.heroNote, language)}
+                      </p>
+                      <Link
+                        to={`/knowledge/${article.slug}`}
+                        className="inline-flex w-fit items-center rounded-full border border-slate-300 px-4 py-2 text-[0.95rem] font-semibold text-slate-900 transition-colors hover:border-slate-950 hover:bg-slate-950 hover:text-white"
+                      >
+                        {localizedText(knowledge.labels.articleAction, language)}
+                      </Link>
+                    </article>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-14 editorial-stack">
+                <div className="editorial-stack max-w-3xl">
+                  <p className="section-kicker">{localizedText(knowledge.labels.trackTitle, language)}</p>
+                  <p className="text-[1rem] leading-8 text-slate-700">
+                    {localizedText(knowledge.labels.trackSubtitle, language)}
+                  </p>
+                </div>
+
+                <div className="story-grid lg:grid-cols-3">
                 {knowledge.tracks.map((track, index) => {
                   const Icon = icons[index] ?? FileTextIcon;
 
@@ -91,6 +146,7 @@ const KnowledgeBasePage: React.FC = () => {
                     </article>
                   );
                 })}
+                </div>
               </div>
             </div>
           </ScrollReveal>

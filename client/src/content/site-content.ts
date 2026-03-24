@@ -50,6 +50,26 @@ export interface KnowledgeTrack {
   topics: LocalizedText[];
 }
 
+export interface KnowledgeArticleSection {
+  heading: LocalizedText;
+  body: LocalizedText[];
+}
+
+export interface KnowledgeArticle {
+  slug: string;
+  category: LocalizedText;
+  title: LocalizedText;
+  summary: LocalizedText;
+  publishedAt: LocalizedText;
+  publishedTime: string;
+  readTime: LocalizedText;
+  safeScopeLabel: LocalizedText;
+  heroNote: LocalizedText;
+  sections: KnowledgeArticleSection[];
+  keyTakeaways: LocalizedText[];
+  boundaryNote: LocalizedText;
+}
+
 export interface AboutNarrativeCard {
   key: string;
   title: LocalizedText;
@@ -298,6 +318,237 @@ const knowledgeTracks: KnowledgeTrack[] = [
       { zh: '储能项目有哪些公开可理解的收益来源', en: 'What are the public and explainable value sources for storage projects?' },
       { zh: '从数据到预测到执行：能源 AI 系统的高层框架', en: 'From data to forecast to execution: a high-level framework for energy AI systems' },
     ],
+  },
+];
+
+const knowledgeArticles: KnowledgeArticle[] = [
+  {
+    slug: 'what-is-a-power-market',
+    category: { zh: '市场基础', en: 'Market Fundamentals' },
+    title: {
+      zh: '什么是电力市场：从计划调度到市场化交易',
+      en: 'What Is A Power Market: From Planned Dispatch To Market Trading',
+    },
+    summary: {
+      zh: '用公开、可理解的语言解释电力市场为什么出现、解决什么问题，以及中长期、现货与辅助服务之间的关系。',
+      en: 'Explain why power markets exist, what problems they solve, and how long-term contracts, spot markets, and ancillary services work together.',
+    },
+    publishedAt: { zh: '2026.03', en: '2026.03' },
+    publishedTime: '2026-03-24',
+    readTime: { zh: '约 6 分钟', en: '6 min read' },
+    safeScopeLabel: { zh: '公开科普', en: 'Public Primer' },
+    heroNote: {
+      zh: '电力市场不是把电当成普通商品简单买卖，而是在电网约束下用价格信号协调发电、用电与灵活性资源。',
+      en: 'A power market is not a simple commodity exchange. It uses price signals under grid constraints to coordinate generation, demand, and flexible resources.',
+    },
+    sections: [
+      {
+        heading: { zh: '为什么需要电力市场', en: 'Why Power Markets Exist' },
+        body: [
+          {
+            zh: '传统电力系统长期依赖计划调度与行政定价，但随着电源结构复杂化、用户需求变化和新能源占比提升，单一计划体系越来越难同时兼顾效率、成本和灵活性。',
+            en: 'Traditional power systems relied on planned dispatch and administrative pricing, but a more complex generation mix, changing demand, and higher renewable penetration make it harder for a single planning regime to balance efficiency, cost, and flexibility.',
+          },
+          {
+            zh: '市场化并不意味着完全放任，而是在安全约束、调度规则和结算体系之内，用价格帮助系统表达稀缺性和调节价值。',
+            en: 'Marketization does not mean removing control. It means using prices within reliability constraints, dispatch rules, and settlement systems to express scarcity and the value of flexibility.',
+          },
+        ],
+      },
+      {
+        heading: { zh: '中长期、现货与辅助服务如何衔接', en: 'How Long-Term, Spot, And Ancillary Layers Connect' },
+        body: [
+          {
+            zh: '中长期市场更强调锁定电量与价格，为参与者提供稳定预期；现货市场承担更接近交割时点的供需平衡与价格发现；辅助服务则补足频率、备用和爬坡等系统稳定需求。',
+            en: 'Long-term markets focus on locking in volume and prices, spot markets handle balancing and price discovery closer to delivery, and ancillary services cover stability needs such as frequency response, reserve, and ramping.',
+          },
+          {
+            zh: '这三层不是彼此替代，而是围绕同一交割体系分层协同运行。理解这种衔接关系，是理解储能、虚拟电厂和交易系统为什么会越来越重要的起点。',
+            en: 'These layers do not replace each other. They operate around the same delivery system at different horizons. Understanding that linkage is the starting point for understanding why storage, VPPs, and trading systems matter more over time.',
+          },
+        ],
+      },
+    ],
+    keyTakeaways: [
+      { zh: '电力市场的目标是提升资源配置效率，而不是取消系统约束。', en: 'Power markets aim to improve resource allocation, not remove system constraints.' },
+      { zh: '中长期、现货和辅助服务是同一体系中的不同层次。', en: 'Long-term, spot, and ancillary services are different layers of the same system.' },
+      { zh: '价格信号的价值在于表达稀缺性、灵活性和实时平衡压力。', en: 'Price signals matter because they express scarcity, flexibility, and real-time balancing pressure.' },
+    ],
+    boundaryNote: {
+      zh: '本文仅用于公开知识分享，不构成交易建议、投资建议或项目实施建议。',
+      en: 'This article is for public knowledge sharing only and does not constitute trading, investment, or project implementation advice.',
+    },
+  },
+  {
+    slug: 'public-value-stack-of-storage',
+    category: { zh: '储能框架', en: 'Storage Framework' },
+    title: {
+      zh: '储能项目的公开价值框架：不仅是峰谷套利',
+      en: 'The Public Value Framework For Storage: More Than Energy Arbitrage',
+    },
+    summary: {
+      zh: '从公开可解释的角度梳理储能项目的价值来源，说明为什么储能不能只按单一价差逻辑理解。',
+      en: 'Outline the public and explainable value sources of storage projects and show why storage cannot be understood only through a single spread-arbitrage lens.',
+    },
+    publishedAt: { zh: '2026.03', en: '2026.03' },
+    publishedTime: '2026-03-24',
+    readTime: { zh: '约 7 分钟', en: '7 min read' },
+    safeScopeLabel: { zh: '公开方法框架', en: 'Public Framework' },
+    heroNote: {
+      zh: '储能的价值常常来自多种市场与调节职责的叠加，而不是某一个收益点的短期放大。',
+      en: 'Storage often creates value by stacking multiple market and balancing roles instead of relying on one narrowly defined revenue source.',
+    },
+    sections: [
+      {
+        heading: { zh: '为什么单一套利视角不够', en: 'Why A Single-Arbitrage View Is Not Enough' },
+        body: [
+          {
+            zh: '在公开讨论里，储能经常被简化为“低价充电、高价放电”。这种描述有帮助，但它忽略了储能同时面对功率、能量、状态区间和履约义务等多重约束。',
+            en: 'In public discussions, storage is often simplified as charge low and discharge high. That framing is useful, but it ignores the fact that storage operates under power, energy, state-of-charge, and delivery constraints at the same time.',
+          },
+          {
+            zh: '现实中的储能价值通常由多层收益组成，例如能量套利、辅助服务、容量补偿、需求响应或园区级灵活性支持。',
+            en: 'In practice, storage value usually comes from several layers, including energy arbitrage, ancillary services, capacity value, demand response, or site-level flexibility support.',
+          },
+        ],
+      },
+      {
+        heading: { zh: '更稳健的公开价值栈理解', en: 'A More Robust Public Value Stack' },
+        body: [
+          {
+            zh: '更稳健的理解方式，是把储能看成一种可以在不同时间尺度上提供灵活性的资源。短周期里，它帮助系统平衡波动；更长周期里，它帮助资产管理者组织收益结构与运营节奏。',
+            en: 'A more robust lens is to treat storage as a flexibility resource operating across different time scales. At short horizons it helps the system absorb volatility, and at longer horizons it helps operators organize revenue structure and operating cadence.',
+          },
+          {
+            zh: '因此，讨论储能价值时，更适合使用“价值栈”和“适用场景”两个概念，而不是直接跳到某个项目的具体收益数字。',
+            en: 'That is why public discussions of storage are better framed in terms of value stack and deployment scenarios rather than project-specific revenue figures.',
+          },
+        ],
+      },
+    ],
+    keyTakeaways: [
+      { zh: '储能的价值通常来自多市场、多职责的叠加。', en: 'Storage value often comes from stacking multiple markets and operating roles.' },
+      { zh: '公开表达应聚焦价值框架和适用场景，而不是项目收益参数。', en: 'Public communication should focus on value frameworks and deployment scenarios, not project-level revenue parameters.' },
+      { zh: '单一价差逻辑无法完整解释储能在新型电力系统中的角色。', en: 'A single spread-arbitrage story cannot fully explain the role of storage in modern power systems.' },
+    ],
+    boundaryNote: {
+      zh: '本文仅用于公开知识分享，不构成交易建议、投资建议或项目实施建议。',
+      en: 'This article is for public knowledge sharing only and does not constitute trading, investment, or project implementation advice.',
+    },
+  },
+  {
+    slug: 'china-vs-europe-power-markets',
+    category: { zh: '行业观察', en: 'Market Observation' },
+    title: {
+      zh: '中国与欧洲电力市场有哪些关键差异',
+      en: 'What Are The Key Differences Between Chinese And European Power Markets',
+    },
+    summary: {
+      zh: '从市场组织方式、价格形成和阅读方法三个角度，解释中国与欧洲电力市场为什么不能机械类比。',
+      en: 'Explain why Chinese and European power markets should not be compared mechanically, focusing on market organization, price formation, and how to read them.',
+    },
+    publishedAt: { zh: '2026.03', en: '2026.03' },
+    publishedTime: '2026-03-24',
+    readTime: { zh: '约 6 分钟', en: '6 min read' },
+    safeScopeLabel: { zh: '公开行业观察', en: 'Public Observation' },
+    heroNote: {
+      zh: '跨市场视角的价值，不在于把一个地区的机制模板直接复制到另一个地区，而在于理解各自制度为何形成、如何演进。',
+      en: 'The value of a cross-market lens is not copying one region’s template into another, but understanding why each market design emerged and how it evolves.',
+    },
+    sections: [
+      {
+        heading: { zh: '共同点：都在解决同一类系统问题', en: 'Shared Ground: Both Solve Similar System Problems' },
+        body: [
+          {
+            zh: '无论是中国还是欧洲，电力市场都要处理同样的核心问题：如何在可靠供电前提下完成价格发现、资源协调和灵活性激励。',
+            en: 'Both Chinese and European power markets must solve the same core problems: price discovery, resource coordination, and flexibility incentives under reliability constraints.',
+          },
+          {
+            zh: '因此，两边都会出现中长期安排、现货出清、辅助服务和跨区域协调这些共同主题。',
+            en: 'That is why both regions feature recurring themes such as long-term contracting, spot clearing, ancillary services, and cross-regional coordination.',
+          },
+        ],
+      },
+      {
+        heading: { zh: '差异点：制度成熟度、价格颗粒度与运行单元', en: 'Where They Differ: Maturity, Granularity, And Operating Units' },
+        body: [
+          {
+            zh: '欧洲自由化市场的发展更早，跨国耦合、分区定价和连续交易等机制形成了较成熟的共同语言。中国市场则更强调全国统一框架下的省级和区域运行单元，不同省份所处阶段和机制差异仍然很大。',
+            en: 'European liberalized markets developed earlier, so cross-border coupling, zonal pricing, and continuous trading form a more mature shared language. China, by contrast, operates through provincial and regional units inside a national reform framework, with large differences across provinces and market stages.',
+          },
+          {
+            zh: '这意味着阅读中国市场时，不能把某一省份的运行方式误认为全国统一机制；阅读欧洲市场时，也不能忽略国家之间在约束、耦合和产品设计上的差异。',
+            en: 'That means a single Chinese province should not be mistaken for a national template, and European markets should not be treated as if national differences in constraints, coupling, and product design do not matter.',
+          },
+        ],
+      },
+    ],
+    keyTakeaways: [
+      { zh: '中国与欧洲市场在核心目标上相通，但在制度路径上差异显著。', en: 'Chinese and European markets share core objectives but differ sharply in institutional pathways.' },
+      { zh: '跨市场比较应该比较机制逻辑，而不是机械复制术语。', en: 'Cross-market comparison should focus on mechanism logic rather than copying terminology mechanically.' },
+      { zh: '公开内容更适合讲框架差异，不适合延伸成具体交易判断。', en: 'Public-facing content should explain structural differences, not drift into concrete trading judgments.' },
+    ],
+    boundaryNote: {
+      zh: '本文仅用于公开知识分享，不构成交易建议、投资建议或项目实施建议。',
+      en: 'This article is for public knowledge sharing only and does not constitute trading, investment, or project implementation advice.',
+    },
+  },
+  {
+    slug: 'from-data-to-forecast-to-execution',
+    category: { zh: '系统框架', en: 'System Framework' },
+    title: {
+      zh: '从数据到预测到执行：能源 AI 系统的高层框架',
+      en: 'From Data To Forecast To Execution: A High-Level Energy AI System Framework',
+    },
+    summary: {
+      zh: '用公开、非敏感的方式说明能源 AI 系统通常由哪些层次构成，以及为什么可审计与可解释性是长期关键。',
+      en: 'Explain, in a public and non-sensitive way, the typical layers of an energy AI system and why auditability and explainability matter over time.',
+    },
+    publishedAt: { zh: '2026.03', en: '2026.03' },
+    publishedTime: '2026-03-24',
+    readTime: { zh: '约 6 分钟', en: '6 min read' },
+    safeScopeLabel: { zh: '公开系统框架', en: 'Public System View' },
+    heroNote: {
+      zh: '能源 AI 系统的价值，不只是模型预测得更准，而是把数据、判断、执行和反馈连接成可持续演进的闭环。',
+      en: 'The value of an energy AI system is not only in better forecasting, but in connecting data, decisions, execution, and feedback into an evolvable loop.',
+    },
+    sections: [
+      {
+        heading: { zh: '高层系统分层', en: 'The High-Level Stack' },
+        body: [
+          {
+            zh: '一个能源 AI 系统通常可以从上到下分成数据层、预测层、决策层、执行层和监控反馈层。不同团队会有不同命名，但底层逻辑相似：先把信息组织好，再把不确定性转成可执行判断。',
+            en: 'An energy AI system can usually be described as a stack of data, forecasting, decision, execution, and monitoring-feedback layers. Teams may name them differently, but the logic is similar: structure information first, then turn uncertainty into executable decisions.',
+          },
+          {
+            zh: '在公开表达中，更重要的是说明这些层为什么需要协同，而不是暴露任何具体模型结构或参数。',
+            en: 'For public communication, it matters more to explain why these layers must work together than to expose any concrete model structure or parameter choices.',
+          },
+        ],
+      },
+      {
+        heading: { zh: '为什么可审计和可解释性重要', en: 'Why Auditability And Explainability Matter' },
+        body: [
+          {
+            zh: '能源系统天然受规则、交付、结算和安全约束影响，因此一个系统不仅要能输出判断，还要让团队知道判断从何而来、可以怎样复核、何时需要人工干预。',
+            en: 'Energy systems are shaped by rules, settlement, delivery, and safety constraints. A usable system must not only produce decisions, but also make it possible to understand where they came from, how to review them, and when human intervention is required.',
+          },
+          {
+            zh: '这也是为什么能源 AI 不能只被理解成一个单点模型，而更像是一套围绕真实运行场景组织起来的工作框架。',
+            en: 'That is also why energy AI should not be understood as a single model. It is better understood as an operating framework built around real-world workflows.',
+          },
+        ],
+      },
+    ],
+    keyTakeaways: [
+      { zh: '能源 AI 系统通常由数据、预测、决策、执行和反馈几层组成。', en: 'Energy AI systems usually combine data, forecasting, decision, execution, and feedback layers.' },
+      { zh: '公开表达应强调系统协同与审计能力，而不是模型细节。', en: 'Public communication should emphasize system coordination and auditability rather than model details.' },
+      { zh: '可解释性是系统长期可用性的组成部分，不是附加装饰。', en: 'Explainability is part of long-term usability, not an optional layer of polish.' },
+    ],
+    boundaryNote: {
+      zh: '本文仅用于公开知识分享，不构成交易建议、投资建议或项目实施建议。',
+      en: 'This article is for public knowledge sharing only and does not constitute trading, investment, or project implementation advice.',
+    },
   },
 ];
 
@@ -596,9 +847,29 @@ export const siteContent = {
       en: 'This section contains public knowledge only. It does not include trading strategies, model parameters, return commitments, or other sensitive business information.',
     },
     tracks: knowledgeTracks,
+    articles: knowledgeArticles,
     contactNote: {
       zh: '如果你希望围绕公开知识主题进一步交流，可以通过联系页面与我们沟通。',
       en: 'If you want to discuss any of these public topics further, please reach out through the contact page.',
+    },
+    labels: {
+      featuredTitle: { zh: '首批公开文章', en: 'Featured Public Articles' },
+      featuredSubtitle: {
+        zh: '以下文章基于公开知识整理与改写，只保留基础机制、行业观察和高层框架。',
+        en: 'The articles below are curated and rewritten from public-safe knowledge, preserving only fundamentals, market observation, and high-level frameworks.',
+      },
+      trackTitle: { zh: '知识覆盖范围', en: 'Knowledge Coverage' },
+      trackSubtitle: {
+        zh: '这些主题说明我们会持续公开讨论的知识范围，但不展开敏感实现与执行细节。',
+        en: 'These tracks define the themes we discuss publicly without exposing sensitive implementation or execution details.',
+      },
+      articleCategory: { zh: '分类', en: 'Category' },
+      articleReadTime: { zh: '阅读时长', en: 'Read Time' },
+      articlePublishedAt: { zh: '发布日期', en: 'Published' },
+      articleAction: { zh: '阅读全文', en: 'Read Article' },
+      keyTakeaways: { zh: '关键要点', en: 'Key Takeaways' },
+      boundaryTitle: { zh: '公开边界说明', en: 'Public Boundary Note' },
+      backToKnowledge: { zh: '返回知识中心', en: 'Back To Knowledge Hub' },
     },
   },
   contact: {
