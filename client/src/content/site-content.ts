@@ -67,7 +67,6 @@ export interface KnowledgeArticle {
   heroNote: LocalizedText;
   sections: KnowledgeArticleSection[];
   keyTakeaways: LocalizedText[];
-  relatedFallbackSlugs: string[];
   boundaryNote: LocalizedText;
 }
 
@@ -375,11 +374,6 @@ const knowledgeArticles: KnowledgeArticle[] = [
       { zh: '中长期、现货和辅助服务是同一体系中的不同层次。', en: 'Long-term, spot, and ancillary services are different layers of the same system.' },
       { zh: '价格信号的价值在于表达稀缺性、灵活性和实时平衡压力。', en: 'Price signals matter because they express scarcity, flexibility, and real-time balancing pressure.' },
     ],
-    relatedFallbackSlugs: [
-      'china-vs-europe-power-markets',
-      'from-data-to-forecast-to-execution',
-      'public-value-stack-of-storage',
-    ],
     boundaryNote: {
       zh: '本文仅用于公开知识分享，不构成交易建议、投资建议或项目实施建议。',
       en: 'This article is for public knowledge sharing only and does not constitute trading, investment, or project implementation advice.',
@@ -436,11 +430,6 @@ const knowledgeArticles: KnowledgeArticle[] = [
       { zh: '储能的价值通常来自多市场、多职责的叠加。', en: 'Storage value often comes from stacking multiple markets and operating roles.' },
       { zh: '公开表达应聚焦价值框架和适用场景，而不是项目收益参数。', en: 'Public communication should focus on value frameworks and deployment scenarios, not project-level revenue parameters.' },
       { zh: '单一价差逻辑无法完整解释储能在新型电力系统中的角色。', en: 'A single spread-arbitrage story cannot fully explain the role of storage in modern power systems.' },
-    ],
-    relatedFallbackSlugs: [
-      'from-data-to-forecast-to-execution',
-      'what-is-a-power-market',
-      'china-vs-europe-power-markets',
     ],
     boundaryNote: {
       zh: '本文仅用于公开知识分享，不构成交易建议、投资建议或项目实施建议。',
@@ -499,11 +488,6 @@ const knowledgeArticles: KnowledgeArticle[] = [
       { zh: '跨市场比较应该比较机制逻辑，而不是机械复制术语。', en: 'Cross-market comparison should focus on mechanism logic rather than copying terminology mechanically.' },
       { zh: '公开内容更适合讲框架差异，不适合延伸成具体交易判断。', en: 'Public-facing content should explain structural differences, not drift into concrete trading judgments.' },
     ],
-    relatedFallbackSlugs: [
-      'what-is-a-power-market',
-      'from-data-to-forecast-to-execution',
-      'public-value-stack-of-storage',
-    ],
     boundaryNote: {
       zh: '本文仅用于公开知识分享，不构成交易建议、投资建议或项目实施建议。',
       en: 'This article is for public knowledge sharing only and does not constitute trading, investment, or project implementation advice.',
@@ -560,11 +544,6 @@ const knowledgeArticles: KnowledgeArticle[] = [
       { zh: '能源 AI 系统通常由数据、预测、决策、执行和反馈几层组成。', en: 'Energy AI systems usually combine data, forecasting, decision, execution, and feedback layers.' },
       { zh: '公开表达应强调系统协同与审计能力，而不是模型细节。', en: 'Public communication should emphasize system coordination and auditability rather than model details.' },
       { zh: '可解释性是系统长期可用性的组成部分，不是附加装饰。', en: 'Explainability is part of long-term usability, not an optional layer of polish.' },
-    ],
-    relatedFallbackSlugs: [
-      'public-value-stack-of-storage',
-      'china-vs-europe-power-markets',
-      'what-is-a-power-market',
     ],
     boundaryNote: {
       zh: '本文仅用于公开知识分享，不构成交易建议、投资建议或项目实施建议。',
@@ -890,10 +869,6 @@ export const siteContent = {
       articleAction: { zh: '阅读全文', en: 'Read Article' },
       keyTakeaways: { zh: '关键要点', en: 'Key Takeaways' },
       boundaryTitle: { zh: '公开边界说明', en: 'Public Boundary Note' },
-      continueReading: { zh: '继续阅读', en: 'Continue Reading' },
-      relatedArticles: { zh: '相关推荐', en: 'Related Articles' },
-      previousArticle: { zh: '上一篇', en: 'Previous Article' },
-      nextArticle: { zh: '下一篇', en: 'Next Article' },
       backToKnowledge: { zh: '返回知识中心', en: 'Back To Knowledge Hub' },
     },
   },

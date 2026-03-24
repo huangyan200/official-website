@@ -5,40 +5,11 @@ import SEO from '@/components/SEO';
 import { localizedText, siteContent } from '@/content/site-content';
 import { useLanguage } from '@/components/LanguageContext';
 
-const ArticleCard: React.FC<{
-  label: string;
-  article: (typeof siteContent.knowledge.articles)[number];
-}> = ({ label, article }) => {
-  const { language } = useLanguage();
-
-  return (
-    <Link
-      to={`/knowledge/${article.slug}`}
-      className="light-stage editorial-stack rounded-[1.6rem] p-5 transition-transform duration-200 hover:-translate-y-1"
-    >
-      <p className="section-kicker">{label}</p>
-      <div className="flex flex-wrap items-center gap-3 text-[0.8rem] font-semibold tracking-[0.03em] text-slate-500">
-        <span>{localizedText(article.category, language)}</span>
-        <span className="text-slate-300">/</span>
-        <span>{localizedText(article.readTime, language)}</span>
-      </div>
-      <h3 className="font-display text-[1.35rem] font-semibold text-slate-950">
-        {localizedText(article.title, language)}
-      </h3>
-      <p className="line-clamp-3 text-[0.98rem] leading-7 text-slate-700">
-        {localizedText(article.summary, language)}
-      </p>
-    </Link>
-  );
-};
-
 const KnowledgeArticlePage: React.FC = () => {
   const { language } = useLanguage();
   const { slug } = useParams<{ slug: string }>();
   const knowledge = siteContent.knowledge;
-  const articles = knowledge.articles;
-  const currentIndex = articles.findIndex((entry) => entry.slug === slug);
-  const article = currentIndex === -1 ? undefined : articles[currentIndex];
+  const article = knowledge.articles.find((entry) => entry.slug === slug);
 
   if (!article) {
     const fallbackBreadcrumbs = [
@@ -82,20 +53,6 @@ const KnowledgeArticlePage: React.FC = () => {
     { name: localizedText(siteContent.navigation[3].label, language), path: '/knowledge' },
     { name: localizedText(article.title, language), path: `/knowledge/${article.slug}` },
   ];
-  const previousArticle = currentIndex > 0 ? articles[currentIndex - 1] : undefined;
-  const nextArticle = currentIndex < articles.length - 1 ? articles[currentIndex + 1] : undefined;
-  const relatedArticles = [
-    ...articles.filter(
-      (entry) => entry.slug !== article.slug && entry.category.en === article.category.en
-    ),
-    ...article.relatedFallbackSlugs
-      .map((relatedSlug) => articles.find((entry) => entry.slug === relatedSlug))
-      .filter((entry): entry is (typeof articles)[number] => Boolean(entry)),
-    ...articles.filter((entry) => entry.slug !== article.slug),
-  ].filter(
-    (entry, index, allEntries) =>
-      allEntries.findIndex((candidate) => candidate.slug === entry.slug) === index
-  ).slice(0, 2);
 
   return (
     <>
@@ -170,44 +127,6 @@ const KnowledgeArticlePage: React.FC = () => {
                 <p className="text-[1rem] leading-8 text-slate-700">
                   {localizedText(article.boundaryNote, language)}
                 </p>
-              </section>
-
-              <section className="editorial-stack">
-                <p className="section-kicker">
-                  {localizedText(knowledge.labels.continueReading, language)}
-                </p>
-
-                {(previousArticle || nextArticle) && (
-                  <div className="grid gap-5 md:grid-cols-2">
-                    {previousArticle ? (
-                      <ArticleCard
-                        label={localizedText(knowledge.labels.previousArticle, language)}
-                        article={previousArticle}
-                      />
-                    ) : null}
-                    {nextArticle ? (
-                      <ArticleCard
-                        label={localizedText(knowledge.labels.nextArticle, language)}
-                        article={nextArticle}
-                      />
-                    ) : null}
-                  </div>
-                )}
-
-                <div className="editorial-stack">
-                  <p className="section-kicker">
-                    {localizedText(knowledge.labels.relatedArticles, language)}
-                  </p>
-                  <div className="grid gap-5 md:grid-cols-2">
-                    {relatedArticles.map((relatedArticle) => (
-                      <ArticleCard
-                        key={relatedArticle.slug}
-                        label={localizedText(knowledge.labels.relatedArticles, language)}
-                        article={relatedArticle}
-                      />
-                    ))}
-                  </div>
-                </div>
               </section>
 
               <Link

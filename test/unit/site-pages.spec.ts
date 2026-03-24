@@ -67,20 +67,6 @@ describe('site pages public-safe launch contract', () => {
     expect(content).toContain('path="knowledge/:slug"');
   });
 
-  it('knowledge article page renders article navigation and related articles', () => {
-    const content = fs.readFileSync(
-      path.join(pagesRoot, 'KnowledgeArticlePage', 'KnowledgeArticlePage.tsx'),
-      'utf8'
-    );
-
-    expect(content).toContain('previousArticle');
-    expect(content).toContain('nextArticle');
-    expect(content).toContain('relatedArticles');
-    expect(content).toContain('relatedFallbackSlugs');
-    expect(content).toContain('knowledge.labels.continueReading');
-    expect(content).toContain('knowledge.labels.relatedArticles');
-  });
-
   it('about page no longer renders quantitative counters or market project totals', () => {
     const content = fs.readFileSync(path.join(pagesRoot, 'AboutPage', 'AboutPage.tsx'), 'utf8');
 

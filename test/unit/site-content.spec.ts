@@ -53,17 +53,6 @@ describe('siteContent public-safe website contract', () => {
     expect(siteContent.knowledge.articles.every((article) => article.sections.length >= 2)).toBe(true);
     expect(siteContent.knowledge.articles.every((article) => article.keyTakeaways.length >= 3)).toBe(true);
     expect(siteContent.knowledge.articles.every((article) => article.boundaryNote.zh.includes('不构成交易'))).toBe(true);
-    expect(siteContent.knowledge.articles.every((article) => article.relatedFallbackSlugs.length >= 2)).toBe(true);
-    expect(
-      siteContent.knowledge.articles.every(
-        (article) => !article.relatedFallbackSlugs.includes(article.slug)
-      )
-    ).toBe(true);
-    expect(
-      siteContent.knowledge.articles.every((article) =>
-        article.relatedFallbackSlugs.every((slug) => articleSlugs.includes(slug))
-      )
-    ).toBe(true);
   });
 
   it('keeps about and contact focused on public positioning and outreach', () => {
