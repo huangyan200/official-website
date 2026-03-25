@@ -94,7 +94,7 @@ const SEO: React.FC<ISEOProps> = ({
         '@type': 'Organization',
         name: identityName,
         url: SITE_URL,
-        logo: `${SITE_URL}/logo.svg`,
+        logo: `${SITE_URL}/logo.png`,
         description: resolvedDescription,
       },
       {

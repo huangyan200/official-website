@@ -43,7 +43,7 @@ const LayoutContent: React.FC = () => {
         <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 md:h-22 md:px-12 lg:px-20">
           <Link to="/" className="flex items-center gap-3 text-white">
             <img
-              src="/logo.svg"
+              src="/logo.png"
               alt={localizedText(brand.name, language)}
               className="h-10 w-auto max-w-[228px] drop-shadow-[0_12px_30px_rgba(2,8,22,0.28)] md:h-12 md:max-w-[260px]"
             />
@@ -88,7 +88,7 @@ const LayoutContent: React.FC = () => {
           <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 md:px-12 lg:px-20">
             <div className="surface-panel flex items-center justify-between gap-3 rounded-[1.5rem] px-5 py-4">
               <img
-                src="/logo.svg"
+                src="/logo.png"
                 alt={localizedText(brand.name, language)}
                 className="h-11 w-auto max-w-[230px]"
               />
@@ -125,7 +125,7 @@ const LayoutContent: React.FC = () => {
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <img
-                  src="/logo.svg"
+                  src="/logo.png"
                   alt={localizedText(brand.name, language)}
                   className="h-12 w-auto max-w-[280px]"
                 />
