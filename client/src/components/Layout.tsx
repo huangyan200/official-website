@@ -43,9 +43,9 @@ const LayoutContent: React.FC = () => {
         <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 md:h-22 md:px-12 lg:px-20">
           <Link to="/" className="flex items-center gap-3 text-white">
             <img
-              src="/logo-card-v4.png"
+              src="/logo-plaque-v5.png"
               alt={localizedText(brand.name, language)}
-              className="w-[164px] h-auto md:w-[184px]"
+              className="w-[158px] h-auto md:w-[176px]"
             />
           </Link>
 
@@ -88,9 +88,9 @@ const LayoutContent: React.FC = () => {
           <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 md:px-12 lg:px-20">
             <div className="surface-panel flex items-center justify-between gap-3 rounded-[1.5rem] px-5 py-4">
               <img
-                src="/logo-card-v4.png"
+                src="/logo-plaque-v5.png"
                 alt={localizedText(brand.name, language)}
-                className="w-[156px] h-auto"
+                className="w-[150px] h-auto"
               />
               <span className="text-right text-[0.84rem] font-medium tracking-[0.04em] text-slate-700">
                 {language === 'zh' ? '量化研究 / 能源市场' : 'Quant Research / Energy Markets'}
@@ -125,9 +125,9 @@ const LayoutContent: React.FC = () => {
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <img
-                  src="/logo-card-v4.png"
+                  src="/logo-plaque-v5.png"
                   alt={localizedText(brand.name, language)}
-                  className="w-[178px] h-auto"
+                  className="w-[170px] h-auto"
                 />
               </div>
               <p className="terminal-line">
