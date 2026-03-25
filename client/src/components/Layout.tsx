@@ -45,7 +45,7 @@ const LayoutContent: React.FC = () => {
             <img
               src="/logo-plaque-v5.png"
               alt={localizedText(brand.name, language)}
-              className="w-[158px] h-auto md:w-[176px]"
+              className="w-[170px] h-auto md:w-[192px]"
             />
           </Link>
 
@@ -90,7 +90,7 @@ const LayoutContent: React.FC = () => {
               <img
                 src="/logo-plaque-v5.png"
                 alt={localizedText(brand.name, language)}
-                className="w-[150px] h-auto"
+                className="w-[162px] h-auto"
               />
               <span className="text-right text-[0.84rem] font-medium tracking-[0.04em] text-slate-700">
                 {language === 'zh' ? '量化研究 / 能源市场' : 'Quant Research / Energy Markets'}
@@ -127,7 +127,7 @@ const LayoutContent: React.FC = () => {
                 <img
                   src="/logo-plaque-v5.png"
                   alt={localizedText(brand.name, language)}
-                  className="w-[170px] h-auto"
+                  className="w-[184px] h-auto"
                 />
               </div>
               <p className="terminal-line">
